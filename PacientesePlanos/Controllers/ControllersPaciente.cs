@@ -21,6 +21,10 @@ public class ControllersPaciente : ControllerBase
        public string Nome { get; set; } = string.Empty; // Inicializa como vazio
     public string CPF { get; set; } = string.Empty;
     public string Telefone { get; set; } = string.Empty;
+
+      public List<int> PlanoIds { get; set; } = new List<int>();
+
+    
     }
 
     public class UpdatePacienteDto
@@ -105,4 +109,34 @@ public string Nome { get; set; } = string.Empty; // Inicializa como vazio
 
         return NoContent();
     }
+    [HttpPost]
+public async Task<IActionResult> CreatePaciente([FromBody] CreatePacienteDto dto)
+{
+    if (!ModelState.IsValid)
+    {
+        return BadRequest(ModelState);
+    }
+
+    var paciente = new Paciente
+    {
+        Nome = dto.Nome,
+        CPF = dto.CPF,
+        Telefone = dto.Telefone
+    };
+
+    // Adiciona planos ao paciente
+    if (dto.PlanoIds != null && dto.PlanoIds.Any())
+    {
+        var planos = await _context.Planos
+            .Where(p => dto.PlanoIds.Contains(p.Id))
+            .ToListAsync();
+
+        paciente.Planos.AddRange(planos);
+    }
+
+    _context.Pacientes.Add(paciente);
+    await _context.SaveChangesAsync();
+
+    return CreatedAtAction(nameof(GetPacienteById), new { id = paciente.Id }, paciente);
+}
 }
