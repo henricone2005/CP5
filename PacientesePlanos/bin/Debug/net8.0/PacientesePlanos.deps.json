@@ -12,6 +12,7 @@
           "Microsoft.EntityFrameworkCore": "8.0.10",
           "Microsoft.EntityFrameworkCore.Design": "8.0.10",
           "Oracle.EntityFrameworkCore": "8.23.60",
+          "Oracle.ManagedDataAccess.Core": "23.6.0",
           "Swashbuckle.AspNetCore": "6.4.0"
         },
         "runtime": {

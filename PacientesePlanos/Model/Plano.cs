@@ -22,7 +22,8 @@ public class Plano
         [Required]
         [StringLength(50)]
         public string Cobertura { get; set; }
-    
+
+        
        public ICollection<Paciente> Pacientes { get; set; } = new List<Paciente>();  
     }
 

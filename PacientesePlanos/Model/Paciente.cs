@@ -20,6 +20,6 @@ public class Paciente
         [Required]
         [StringLength(15)]
         public string Telefone { get; set; }
-
+    
         public ICollection<Plano> Planos { get; set; } = new List<Plano>();
 }

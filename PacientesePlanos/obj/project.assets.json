@@ -2954,6 +2954,7 @@
       "Microsoft.EntityFrameworkCore >= 8.0.10",
       "Microsoft.EntityFrameworkCore.Design >= 8.0.10",
       "Oracle.EntityFrameworkCore >= 8.23.60",
+      "Oracle.ManagedDataAccess.Core >= 23.6.0",
       "Swashbuckle.AspNetCore >= 6.4.0"
     ]
   },
@@ -2963,11 +2964,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "c:\\Users\\henri\\Downloads\\CP5\\CP5\\PacientesePlanos\\PacientesePlanos.csproj",
+      "projectUniqueName": "C:\\Users\\henri\\Downloads\\CP5\\CP5\\PacientesePlanos\\PacientesePlanos.csproj",
       "projectName": "PacientesePlanos",
-      "projectPath": "c:\\Users\\henri\\Downloads\\CP5\\CP5\\PacientesePlanos\\PacientesePlanos.csproj",
+      "projectPath": "C:\\Users\\henri\\Downloads\\CP5\\CP5\\PacientesePlanos\\PacientesePlanos.csproj",
       "packagesPath": "C:\\Users\\henri\\.nuget\\packages\\",
-      "outputPath": "c:\\Users\\henri\\Downloads\\CP5\\CP5\\PacientesePlanos\\obj\\",
+      "outputPath": "C:\\Users\\henri\\Downloads\\CP5\\CP5\\PacientesePlanos\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\henri\\AppData\\Roaming\\NuGet\\NuGet.Config"
@@ -3016,6 +3017,10 @@
           "Oracle.EntityFrameworkCore": {
             "target": "Package",
             "version": "[8.23.60, )"
+          },
+          "Oracle.ManagedDataAccess.Core": {
+            "target": "Package",
+            "version": "[23.6.0, )"
           },
           "Swashbuckle.AspNetCore": {
             "target": "Package",
