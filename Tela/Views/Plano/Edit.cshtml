@@ -1,0 +1,32 @@
+@model Tela.Model.Plano
+
+<h2>Editar Plano</h2>
+
+<form asp-action="Editar" method="post">
+    <div class="form-group">
+        <label asp-for="Nome" class="control-label"></label>
+        <input asp-for="Nome" class="form-control" />
+        <span asp-validation-for="Nome" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="Codigo" class="control-label"></label>
+        <input asp-for="Codigo" class="form-control" />
+        <span asp-validation-for="Codigo" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="Cobertura" class="control-label"></label>
+        <input asp-for="Cobertura" class="form-control" />
+        <span asp-validation-for="Cobertura" class="text-danger"></span>
+    </div>
+
+    <input type="hidden" asp-for="Id" />
+
+    <button type="submit" class="btn btn-primary">Salvar</button>
+    <a asp-action="Index" class="btn btn-secondary">Cancelar</a>
+</form>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

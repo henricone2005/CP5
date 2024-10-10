@@ -1,0 +1,31 @@
+@model IEnumerable<Tela.Model.Plano>
+
+<h2>Lista de Planos</h2>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Nome</th>
+            <th>Código</th>
+            <th>Cobertura</th>
+            <th>Ações</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var plano in Model)
+        {
+            <tr>
+                <td>@plano.Nome</td>
+                <td>@plano.Codigo</td>
+                <td>@plano.Cobertura</td>
+                <td>
+                    <a href="@Url.Action("Detalhes", new { id = plano.Id })">Detalhes</a> |
+                    <a href="@Url.Action("Editar", new { id = plano.Id })">Editar</a> |
+                    <a href="@Url.Action("Excluir", new { id = plano.Id })">Excluir</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+<a href="@Url.Action("Criar")" class="btn btn-primary">Adicionar Novo Plano</a>

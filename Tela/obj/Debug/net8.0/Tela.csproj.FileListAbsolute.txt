@@ -1,0 +1,9 @@
+C:\Users\henri\Downloads\CP5\CP5\Tela\obj\Debug\net8.0\Tela.csproj.AssemblyReference.cache
+C:\Users\henri\Downloads\CP5\CP5\Tela\obj\Debug\net8.0\Tela.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\henri\Downloads\CP5\CP5\Tela\obj\Debug\net8.0\Tela.AssemblyInfoInputs.cache
+C:\Users\henri\Downloads\CP5\CP5\Tela\obj\Debug\net8.0\Tela.AssemblyInfo.cs
+C:\Users\henri\Downloads\CP5\CP5\Tela\obj\Debug\net8.0\Tela.csproj.CoreCompileInputs.cache
+C:\Users\henri\Downloads\CP5\CP5\Tela\obj\Debug\net8.0\Tela.MvcApplicationPartsAssemblyInfo.cache
+C:\Users\henri\Downloads\CP5\CP5\Tela\obj\Debug\net8.0\Tela.RazorAssemblyInfo.cache
+C:\Users\henri\Downloads\CP5\CP5\Tela\obj\Debug\net8.0\Tela.RazorAssemblyInfo.cs
+C:\Users\henri\Downloads\CP5\CP5\Tela\obj\Debug\net8.0\Tela.sourcelink.json

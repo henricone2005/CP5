@@ -1,0 +1,18 @@
+@model Tela.Model.Paciente
+
+<h2>Excluir Paciente</h2>
+
+<h3>Tem certeza de que deseja excluir este paciente?</h3>
+<div>
+    <h4>@Model.Nome</h4>
+    <div>
+        <p><strong>CPF:</strong> @Model.CPF</p>
+        <p><strong>Telefone:</strong> @Model.Telefone</p>
+    </div>
+
+    <form asp-action="Excluir" method="post">
+        <input type="hidden" asp-for="Id" />
+        <button type="submit" class="btn btn-danger">Excluir</button>
+        <a asp-action="Index" class="btn btn-secondary">Cancelar</a>
+    </form>
+</div>

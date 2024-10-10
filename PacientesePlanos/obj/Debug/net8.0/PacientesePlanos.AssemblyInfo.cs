@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("PacientesePlanos")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+9540dd6b452c86eac6219987f6bef5d30a65af62")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+e238ad797fe29c3749285010315045edd715f4e8")]
 [assembly: System.Reflection.AssemblyProductAttribute("PacientesePlanos")]
 [assembly: System.Reflection.AssemblyTitleAttribute("PacientesePlanos")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

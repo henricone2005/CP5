@@ -18,52 +18,60 @@ public class ControllersPaciente : ControllerBase
 
     public class CreatePacienteDto
     {
-       public string Nome { get; set; } = string.Empty; // Inicializa como vazio
-    public string CPF { get; set; } = string.Empty;
-    public string Telefone { get; set; } = string.Empty;
-
-      public List<int> PlanoIds { get; set; } = new List<int>();
-
-    
+        public string Nome { get; set; } = string.Empty;
+        public string CPF { get; set; } = string.Empty;
+        public string Telefone { get; set; } = string.Empty;
+        public List<int> PlanoIds { get; set; } = new List<int>();
     }
 
     public class UpdatePacienteDto
     {
-public string Nome { get; set; } = string.Empty; // Inicializa como vazio
+        public string Nome { get; set; } = string.Empty;
+        public string CPF { get; set; } = string.Empty;
+        public string Telefone { get; set; } = string.Empty;
+    }
+
+    public class PacienteDto
+{
+    public int Id { get; set; }
+    public string Nome { get; set; } = string.Empty;
     public string CPF { get; set; } = string.Empty;
     public string Telefone { get; set; } = string.Empty;
-    }
-
-    // POST: api/pacientes
-    [HttpPost]
-    public async Task<ActionResult<Paciente>> CreatePaciente(CreatePacienteDto dto)
-    {
-        var paciente = new Paciente
-        {
-            Nome = dto.Nome,
-            CPF = dto.CPF,
-            Telefone = dto.Telefone
-        };
-
-        _context.Pacientes.Add(paciente);
-        await _context.SaveChangesAsync();
-
-        return CreatedAtAction(nameof(GetPacienteById), new { id = paciente.Id }, paciente);
-    }
+    public List<int> PlanoIds { get; set; } = new List<int>();
+}
 
     // GET: api/pacientes
     [HttpGet]
-    public async Task<ActionResult<IEnumerable<Paciente>>> GetPacientes()
+    public async Task<ActionResult<IEnumerable<PacienteDto>>> GetPacientes()
     {
-        return await _context.Pacientes.ToListAsync();
+        var pacientes = await _context.Pacientes
+            .Select(p => new PacienteDto
+            {
+                Id = p.Id,
+                Nome = p.Nome,
+                CPF = p.CPF,
+                Telefone = p.Telefone,
+                PlanoIds = p.Planos.Select(plano => plano.Id).ToList()
+            })
+            .ToListAsync();
+
+        return Ok(pacientes);
     }
 
     // GET: api/pacientes/{id}
     [HttpGet("{id}")]
-    public async Task<ActionResult<Paciente>> GetPacienteById(int id)
+    public async Task<ActionResult<PacienteDto>> GetPacienteById(int id)
     {
         var paciente = await _context.Pacientes
-            .Include(p => p.Planos) // Inclui os planos associados
+            .Include(p => p.Planos)
+            .Select(p => new PacienteDto
+            {
+                Id = p.Id,
+                Nome = p.Nome,
+                CPF = p.CPF,
+                Telefone = p.Telefone,
+                PlanoIds = p.Planos.Select(plano => plano.Id).ToList()
+            })
             .FirstOrDefaultAsync(p => p.Id == id);
 
         if (paciente == null)
@@ -71,7 +79,7 @@ public string Nome { get; set; } = string.Empty; // Inicializa como vazio
             return NotFound($"Paciente com ID {id} não encontrado.");
         }
 
-        return paciente;
+        return Ok(paciente);
     }
 
     // PUT: api/pacientes/{id}
@@ -109,34 +117,44 @@ public string Nome { get; set; } = string.Empty; // Inicializa como vazio
 
         return NoContent();
     }
+
+    // POST: api/pacientes
     [HttpPost]
-public async Task<IActionResult> CreatePaciente([FromBody] CreatePacienteDto dto)
-{
-    if (!ModelState.IsValid)
+    public async Task<IActionResult> CreatePaciente([FromBody] CreatePacienteDto dto)
     {
-        return BadRequest(ModelState);
+        if (!ModelState.IsValid)
+        {
+            return BadRequest(ModelState);
+        }
+
+        var paciente = new Paciente
+        {
+            Nome = dto.Nome,
+            CPF = dto.CPF,
+            Telefone = dto.Telefone
+        };
+
+        // Adiciona planos ao paciente
+        if (dto.PlanoIds != null && dto.PlanoIds.Any())
+        {
+            var planos = await _context.Planos
+                .Where(p => dto.PlanoIds.Contains(p.Id))
+                .ToListAsync();
+
+            if (planos.Count != dto.PlanoIds.Count)
+            {
+                return BadRequest("Um ou mais IDs de plano são inválidos.");
+            }
+
+            foreach (var plano in planos)
+            {
+                paciente.Planos.Add(plano); // Supondo que Planos é um ICollection<Plano>
+            }
+        }
+
+        _context.Pacientes.Add(paciente);
+        await _context.SaveChangesAsync();
+
+        return CreatedAtAction(nameof(GetPacienteById), new { id = paciente.Id }, paciente);
     }
-
-    var paciente = new Paciente
-    {
-        Nome = dto.Nome,
-        CPF = dto.CPF,
-        Telefone = dto.Telefone
-    };
-
-    // Adiciona planos ao paciente
-    if (dto.PlanoIds != null && dto.PlanoIds.Any())
-    {
-        var planos = await _context.Planos
-            .Where(p => dto.PlanoIds.Contains(p.Id))
-            .ToListAsync();
-
-        paciente.Planos.AddRange(planos);
-    }
-
-    _context.Pacientes.Add(paciente);
-    await _context.SaveChangesAsync();
-
-    return CreatedAtAction(nameof(GetPacienteById), new { id = paciente.Id }, paciente);
-}
 }

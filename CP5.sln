@@ -5,6 +5,8 @@ VisualStudioVersion = 17.0.31903.59
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PacientesePlanos", "PacientesePlanos\PacientesePlanos.csproj", "{D1C90009-01D2-4F12-AEF0-4D6C67FB5255}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tela", "Tela\Tela.csproj", "{1849A6FD-783C-4FE4-ADD2-4176BA6FDF6C}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -18,5 +20,9 @@ Global
 		{D1C90009-01D2-4F12-AEF0-4D6C67FB5255}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D1C90009-01D2-4F12-AEF0-4D6C67FB5255}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D1C90009-01D2-4F12-AEF0-4D6C67FB5255}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1849A6FD-783C-4FE4-ADD2-4176BA6FDF6C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1849A6FD-783C-4FE4-ADD2-4176BA6FDF6C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1849A6FD-783C-4FE4-ADD2-4176BA6FDF6C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1849A6FD-783C-4FE4-ADD2-4176BA6FDF6C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
