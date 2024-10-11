@@ -1,5 +1,6 @@
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
+using System.Text.Json.Serialization;
 
 
 namespace PacientesePlanos.Model;
@@ -21,7 +22,6 @@ public class Paciente
         [Required]
         [StringLength(15)]
         public string Telefone { get; set; }
-        
-       
+
         public ICollection<Plano> Planos { get; set; } = new List<Plano>();
 }

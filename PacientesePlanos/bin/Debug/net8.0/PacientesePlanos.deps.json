@@ -9,8 +9,8 @@
       "PacientesePlanos/1.0.0": {
         "dependencies": {
           "Microsoft.AspNetCore.OpenApi": "8.0.7",
-          "Microsoft.EntityFrameworkCore": "8.0.10",
           "Microsoft.EntityFrameworkCore.Design": "8.0.10",
+          "Microsoft.Extensions.Localization": "8.0.10",
           "Oracle.EntityFrameworkCore": "8.23.60",
           "Oracle.ManagedDataAccess.Core": "23.6.0",
           "Swashbuckle.AspNetCore": "6.4.0"
@@ -367,6 +367,28 @@
           "lib/net8.0/Microsoft.Extensions.DependencyModel.dll": {
             "assemblyVersion": "8.0.0.2",
             "fileVersion": "8.0.1024.46610"
+          }
+        }
+      },
+      "Microsoft.Extensions.Localization/8.0.10": {
+        "dependencies": {
+          "Microsoft.Extensions.DependencyInjection.Abstractions": "8.0.2",
+          "Microsoft.Extensions.Localization.Abstractions": "8.0.10",
+          "Microsoft.Extensions.Logging.Abstractions": "8.0.2",
+          "Microsoft.Extensions.Options": "8.0.2"
+        },
+        "runtime": {
+          "lib/net8.0/Microsoft.Extensions.Localization.dll": {
+            "assemblyVersion": "8.0.0.0",
+            "fileVersion": "8.0.1024.46804"
+          }
+        }
+      },
+      "Microsoft.Extensions.Localization.Abstractions/8.0.10": {
+        "runtime": {
+          "lib/net8.0/Microsoft.Extensions.Localization.Abstractions.dll": {
+            "assemblyVersion": "8.0.0.0",
+            "fileVersion": "8.0.1024.46804"
           }
         }
       },
@@ -797,6 +819,20 @@
       "sha512": "sha512-mUBDZZRgZrSyFOsJ2qJJ9fXfqd/kXJwf3AiDoqLD9m6TjY5OO/vLNOb9fb4juC0487eq4hcGN/M2Rh/CKS7QYw==",
       "path": "microsoft.extensions.dependencymodel/8.0.2",
       "hashPath": "microsoft.extensions.dependencymodel.8.0.2.nupkg.sha512"
+    },
+    "Microsoft.Extensions.Localization/8.0.10": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-0QCDimg4cR7EJRMaP4YBWodmIvuEA91icrjTAqYYhoNrlswk/39EqdC240xDTmsqr8i1h1ulQXzHv5WNBodX2Q==",
+      "path": "microsoft.extensions.localization/8.0.10",
+      "hashPath": "microsoft.extensions.localization.8.0.10.nupkg.sha512"
+    },
+    "Microsoft.Extensions.Localization.Abstractions/8.0.10": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-OuuTRyukXTPjTgx1iYJzyaPa+hFrkj1djlWV/kqsWs2arSXczh/JpCgak617mo3M+5FMpEJ3af5nrgehC7q1YQ==",
+      "path": "microsoft.extensions.localization.abstractions/8.0.10",
+      "hashPath": "microsoft.extensions.localization.abstractions.8.0.10.nupkg.sha512"
     },
     "Microsoft.Extensions.Logging/8.0.1": {
       "type": "package",
